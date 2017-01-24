@@ -1,9 +1,5 @@
 package com.fellows.rest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -24,7 +20,7 @@ public class JSONService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Clock getClockInJSON(@PathParam("hora") int hora, @PathParam("minuto") int minuto) {
 
-		Clock c = null;
+		Clock c = null;	
 		
 		if (JSONService.lista[hora][minuto] == null) {
 			c = new Clock();
