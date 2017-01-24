@@ -12,16 +12,33 @@ import com.fellows.entity.Clock;
 public class JSONService {
 
 	private static Clock[][] lista = new Clock[13][60];
-	
-	public JSONService() {}
+
+	public JSONService() {
+	}
 
 	@GET
 	@Path("{hora}/{minuto}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Clock getClockInJSON(@PathParam("hora") int hora, @PathParam("minuto") int minuto) {
 
-		Clock c = null;	
-		
+		Clock c = null;
+
+		int _hora = hora;
+		int _minuto = minuto;
+
+		if (_hora < 0) {
+			_hora = 0;
+		}
+		if (_hora > 11) {
+			_hora = 12;
+		}
+		if (_minuto < 0) {
+			_minuto = 0;
+		}
+		if (_minuto > 59) {
+			_minuto = 0;
+		}
+
 		if (JSONService.lista[hora][minuto] == null) {
 			c = new Clock();
 			c.setHour(hora);
@@ -31,7 +48,7 @@ public class JSONService {
 			System.out.println("from cache");
 			c = JSONService.lista[hora][minuto];
 		}
-		
+
 		return c;
 	}
 
