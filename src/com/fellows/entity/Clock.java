@@ -79,10 +79,10 @@ public class Clock {
 		return this.angle;
 
 	}
-//
-//	@Override
-//	public String toString() {
-//		return getAngle();
-//	}
+
+	@Override
+	public String toString() {
+		return "{\"angle\":" + getAngle() + "}";
+	}
 
 }
