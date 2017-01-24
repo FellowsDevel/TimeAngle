@@ -8,10 +8,9 @@ public class Clock {
 	// 60 minutos são 360 graus, logo, um minuto são 360/60 = 6°
 	private static final int ANGLE_MINUTE = 6;
 
-	volatile int hour;
-
-	volatile int minute;
-	volatile int angle;
+	private int hour;
+	private int minute;
+	private int angle;
 
 	public void setHour(int hour) {
 		this.hour = hour;
