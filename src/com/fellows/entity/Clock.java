@@ -73,7 +73,7 @@ public class Clock {
 	private int calculateTimeAngle() {
 		this.angle = Math.abs(getHourAngle(this.hour) - getMinuteAngle(this.minute));
 		if (this.angle > 180) {
-			this.angle -= 180;
+			this.angle = 360 - this.angle;
 		}
 		return this.angle;
 
